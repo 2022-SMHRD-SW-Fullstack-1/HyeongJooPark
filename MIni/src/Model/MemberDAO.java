@@ -48,7 +48,7 @@ public class MemberDAO {
 	public int insert(String id, int pw, String nick) {
 		getCon();
 		try {
-			String sql = "insert into user_info values(?, ?, ?, ?)";
+			String sql = "insert into user_info values(?, ?, ?)";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, id);
 			psmt.setInt(2, pw);
