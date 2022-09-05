@@ -1,6 +1,8 @@
-package Music;
+package View;
 
 import java.util.Scanner;
+
+import Controller.MusicController;
 
 public class MusicView {
 

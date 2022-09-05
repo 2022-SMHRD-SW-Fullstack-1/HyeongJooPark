@@ -1,4 +1,4 @@
-package Music;
+package Model;
 
 public class MusicModel {
 	

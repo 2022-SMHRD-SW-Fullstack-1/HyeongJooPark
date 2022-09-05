@@ -1,7 +1,9 @@
-package Music;
+package Controller;
 
 import java.util.ArrayList;
 import java.util.Random;
+
+import Model.MusicModel;
 import javazoom.jl.player.MP3Player;
 
 public class MusicController {
