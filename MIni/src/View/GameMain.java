@@ -2,6 +2,8 @@ package View;
 
 import java.util.Scanner;
 
+import Controller.MemberCon;
+
 public class GameMain {
 
 	public static void main(String[] args) {

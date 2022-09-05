@@ -2,6 +2,7 @@ package Controller;
 
 import java.util.ArrayList;
 
+import Model.MemberDAO;
 import model.MemberDTO;
 
 public class MemberCon {
