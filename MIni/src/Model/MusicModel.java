@@ -6,6 +6,10 @@ public class MusicModel {
 	private String singer;
 	private int playTime;
 	private String musicPath;
+
+	public MusicModel() {
+		
+	}
 	
 	public MusicModel(String songName, String singer, int playTime, String musicPath) {
 		this.songName = songName;
@@ -34,8 +38,5 @@ public class MusicModel {
 		return musicPath;
 	}
 
-	
-	
-	
 	
 }
