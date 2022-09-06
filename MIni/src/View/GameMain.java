@@ -66,11 +66,11 @@ public class GameMain {
 
 						if(inputLog == 1) {
 							//게임화면
-
 							int score = 0; //누적 점수
 							int count = 3; //남은 생명
 							int round = 1; //몇번째 문제인지
 							boolean hintCheck = false;
+							
 							System.out.println("========난이도 선택========");
 							System.out.print("[1]Normal [2]Hell >> ");
 							mc.selectLevel(sc.nextInt());
@@ -81,8 +81,7 @@ public class GameMain {
 									mc.play();
 									mc.stop();				
 									System.out.println("========"+(round)+"번째 문제========");
-									System.out.println("패스를 원할 시 p를 입력하세요");
-				
+									System.out.println("패스를 원할 시 p를 입력하세요");			
 									System.out.print("정답 입력 >> ");
 									String ans = sc.next();
 									if(ans.equals(mc.answer())) {
@@ -102,19 +101,17 @@ public class GameMain {
 										count--;
 										System.out.println("남은 횟수 : "+count+"/3");
 										hintCheck=true;
-										if(hintCheck==true) {
-						
+										
+										if(hintCheck==true) {						
 											System.out.print("힌트 : ");
-											System.out.println(mc.hint());
-											
-										}
-																			
+											System.out.println(mc.hint());										
+										}																		
 									}
 									if(count==0) {
 										System.out.println("정답 : "+mc.answer());
 										System.out.println("====================");
 										System.out.println("You're dead");
-										
+										hintCheck = false;
 									}
 								}
 								System.out.println("====================");
