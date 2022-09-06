@@ -131,7 +131,6 @@ public class MemberDAO {
 		return totalList;
 	}
 	
-	
 	public String giveHint(String songName) {// 힌트출력
 		getCon();
 		String head="";

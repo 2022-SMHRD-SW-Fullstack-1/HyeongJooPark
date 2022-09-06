@@ -11,20 +11,22 @@ import javazoom.jl.player.MP3Player;
 
 public class MusicController {
 	
+	MusicModel mm = new MusicModel();
+	
 	Level LV = new Level() {
 	};
 	
-	ArrayList<MusicModel> musiclist = new ArrayList<>();
+//	ArrayList<MusicModel> musiclist = new ArrayList<>();
 	Random rd = new Random();
 	MP3Player mp3 = new MP3Player();
 	
 	int round=0;
 	int sum=0;
-	int [] rdVal = new int[3];
+	int [] rdVal = new int[239];
 
 	public void GenerateRandomVariable() {
-		for(int i=0;i<3;i++) {
-			rdVal[i]=rd.nextInt(3);
+		for(int i=0;i<239;i++) {
+			rdVal[i]=rd.nextInt(239);
 			for(int j=0;j<i;j++) {
 				if(rdVal[i]==rdVal[j]) {
 					i--;
@@ -32,11 +34,11 @@ public class MusicController {
 			}
 		}
 	}
-
 	public MusicController() {
-		musiclist.add(new MusicModel("롤리폴리","티아라",19,"music/rolypoly.mp3"));
-		musiclist.add(new MusicModel("애프터라이크","아이브",19,"music/afterlike.mp3"));
-		musiclist.add(new MusicModel("라일락","아이유",20,"music/lilac.mp3"));
+		mm.select();
+//		for(int i = 0; i<56 ; i++) {
+//			musiclist.add(new MusicModel(musiclist.get(i).getMusicPath(), musiclist.get(i).getSinger(), musiclist.get(i).getSongName(), musiclist.get(i).getHead()));
+							
 	}
 	
 	public Level selectLevel(int selectL) {
@@ -50,7 +52,7 @@ public class MusicController {
 	
 	//문제 출제
 	public void play() {
-		mp3.play(musiclist.get(rdVal[round]).getMusicPath());
+		mp3.play(mm.select().get(rdVal[round]).getPath());
 	}
 
 	//다음 문제 출제
@@ -72,19 +74,19 @@ public class MusicController {
 	public void pass() {
 		if(mp3.isPlaying()) {
 			mp3.stop();
-		}else if(round<musiclist.size()-1) {
+		}else if(round<mm.select().size()-1) {
 			round++;
-			mp3.play(musiclist.get(rdVal[round]).getMusicPath());
+			mp3.play(mm.select().get(rdVal[round]).getPath());
 		}
 	}
 	
 	public String answer() {
-		return musiclist.get(rdVal[round]).getSongName();
+		return mm.select().get(rdVal[round]).getTitle();
 	}
 	
-	public String hint() {
-		
-	}
+//	public String hint() {
+//		
+//	}
 	
 	public int score(String ans) {
 		sum+=LV.getScore();
