@@ -112,15 +112,12 @@ public class GameMain {
 									if(count==0) {
 										System.out.println("====================");
 										System.out.println("You're dead");
+										hintCheck=false;
 									}
 								}
 								System.out.println("====================");
 								int totalScore = memcon.scoreInsert(id, score); //Controller에 전송
-								//							if(result > 0) {
-								//								System.out.println("점수 저장 성공");
-								//							}else {
-								//								System.out.println("점수 저장 실패");
-								//							}
+
 								//랭크 보여줄 자리
 								if(round>question || count==0) {
 									System.out.println("게임 종료");
