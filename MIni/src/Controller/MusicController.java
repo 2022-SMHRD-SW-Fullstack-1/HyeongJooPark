@@ -22,11 +22,11 @@ public class MusicController {
 	
 	int round=0;
 	int sum=0;
-	int [] rdVal = new int[239];
+	int [] rdVal = new int[240];
 
 	public void GenerateRandomVariable() {
-		for(int i=0;i<239;i++) {
-			rdVal[i]=rd.nextInt(239);
+		for(int i=0;i<240;i++) {
+			rdVal[i]=rd.nextInt(240);
 			for(int j=0;j<i;j++) {
 				if(rdVal[i]==rdVal[j]) {
 					i--;
