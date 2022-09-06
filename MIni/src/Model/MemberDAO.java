@@ -91,7 +91,7 @@ public class MemberDAO {
 		getCon();
 		
 		try {
-			String sql = "SELECT nick, score FROM (SELECT i.nick, s.score FROM user_info i, user_score s WHERE i.id = s.id ORDER BY s.score desc) WHERE rownum < 11";
+			String sql = "SELECT nick, score, res_date FROM (SELECT i.nick, s.score, s.res_date FROM user_info i, user_score s WHERE i.id = s.id ORDER BY s.score desc) WHERE rownum < 11";
 
 			psmt = conn.prepareStatement(sql);
 			rs = psmt.executeQuery();
