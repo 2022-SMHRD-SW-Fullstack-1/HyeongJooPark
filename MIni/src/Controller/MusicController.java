@@ -20,6 +20,7 @@ public class MusicController {
 	MP3Player mp3 = new MP3Player();
 	
 	int round=0;
+	int sum=0;
 	int [] rdVal = new int[3];
 
 	public void GenerateRandomVariable() {
@@ -54,7 +55,7 @@ public class MusicController {
 	public void play() {
 		if(round<3) {
 			mp3.play(musiclist.get(rdVal[round]).getMusicPath());
-		}else System.out.println("문제를 모두 풀었습니다");
+		}
 	}
 
 	//다음 문제 출제
@@ -76,11 +77,10 @@ public class MusicController {
 	public void pass() {
 		if(mp3.isPlaying()) {
 			mp3.stop();
-		}
-		if(round<musiclist.size()-1) {
+		}else if(round<musiclist.size()-1) {
 			round++;
 			mp3.play(musiclist.get(rdVal[round]).getMusicPath());
-		}else System.out.println("문제를 모두 풀었습니다");
+		}
 	}
 	
 	public String answer() {
@@ -88,12 +88,7 @@ public class MusicController {
 	}
 	
 	public int score(String ans) {
-		int sum=LV.getScore();
-		
-		if(ans.equals(answer())) {
-			sum = +LV.getScore();
-		}
-		
+		sum+=LV.getScore();
 		return sum;
 	}
 
