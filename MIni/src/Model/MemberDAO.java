@@ -45,13 +45,13 @@ public class MemberDAO {
 	}
 	}
 	
-	public int insert(String id, int pw, String nick) {
+	public int insert(String id, String pw, String nick) {
 		getCon();
 		try {
 			String sql = "insert into user_info values(?, ?, ?)";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, id);
-			psmt.setInt(2, pw);
+			psmt.setString(2, pw);
 			psmt.setString(3, nick);
 			
 			cnt = psmt.executeUpdate();
@@ -64,14 +64,14 @@ public class MemberDAO {
 		return cnt;
 	}
 		
-	public String login(String id, int pw) {
+	public String login(String id, String pw) {
 		getCon();
 		String nick = null;
 		try {
 			String sql = "select nick from user_info where id=? and pw=?";
 			psmt = conn.prepareStatement(sql);
 			psmt.setString(1, id);
-			psmt.setInt(2, pw);
+			psmt.setString(2, pw);
 			
 			rs = psmt.executeQuery();
 			

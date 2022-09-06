@@ -2,7 +2,7 @@ package Model;
 
 public class MemberDTO {
 	private String id;
-	private int pw;
+	private String pw;
 	private String nick;
 	private int score;
 	

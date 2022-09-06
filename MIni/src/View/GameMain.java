@@ -27,7 +27,7 @@ public class GameMain {
 				System.out.print("아이디 : ");
 				String id = sc.next();
 				System.out.print("비밀번호(숫자로만입력) : ");
-				int pw = sc.nextInt();
+				String pw = sc.next();
 				System.out.print("닉네임 : ");
 				String nick = sc.next();			
 
@@ -46,7 +46,7 @@ public class GameMain {
 				String id = sc.next();
 
 				System.out.println("비밀번호 : ");
-				int pw = sc.nextInt();
+				String pw = sc.next();
 
 				//로그인 성공시 회원의 닉네임 출력하기
 				String nick = memcon.conLogin(id, pw);
