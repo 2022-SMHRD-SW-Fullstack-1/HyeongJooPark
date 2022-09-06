@@ -49,11 +49,17 @@ public class MusicController {
 	
 	//문제 출제
 	public void play() {
+		if(mp3.isPlaying()==true){
+			mp3.stop();
+		}	
 		mp3.play(mm.select().get(rdVal[round]).getPath());
 	}
 
 	//다음 문제 출제
 	public void next() {
+		if(mp3.isPlaying()==true) {
+			mp3.stop();
+		}
 		round++;
 	}
 
@@ -69,7 +75,7 @@ public class MusicController {
 
 	//패스
 	public void pass() {
-		if(mp3.isPlaying()) {
+		if(mp3.isPlaying()==true) {
 			mp3.stop();
 		}else if(round<mm.select().size()-1) {
 			round++;
