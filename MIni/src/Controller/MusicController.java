@@ -81,6 +81,10 @@ public class MusicController {
 		return mm.select().get(rdVal[round]).getTitle();
 	}
 	
+	public String singer() {
+		return mm.select().get(rdVal[round]).getSinger();
+	}
+	
 	public String hint() {
 		return mm.select().get(rdVal[round]).getHead();
 	}
