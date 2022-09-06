@@ -77,6 +77,7 @@ public class GameMain {
 							mc.GenerateRandomVariable();
 							while(true) {
 								if(round<=question) {
+									System.out.println("==노래가 끝나고 나면 정답을 입력해 주세요==");
 									mc.play();
 									mc.stop();				
 									System.out.println("========"+(round)+"번째 문제========");
