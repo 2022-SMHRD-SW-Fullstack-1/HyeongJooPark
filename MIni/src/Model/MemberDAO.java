@@ -176,6 +176,26 @@ public class MemberDAO {
 		return head;
 	}
 	
+	public int delete(String id, String pw) {
+		getCon();		
+		
+		try {
+			String sql = "DELETE FROM user_info WHERE id = ? AND pw = ?"; //id, pw, nick, age
+			psmt = conn.prepareStatement(sql);
+			
+			psmt.setString(1, id);
+			psmt.setString(2, pw);
+			
+			cnt = psmt.executeUpdate();			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			close(); // - 연결 종료
+		}
+		return cnt;
+	}
 	
 	
 		

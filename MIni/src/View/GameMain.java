@@ -214,23 +214,22 @@ public class GameMain {
 					}
 				}
 			}else if(input == 4) {
-				System.out.println("======탈퇴======");
+				System.out.println("탈퇴할 아이디와 비밀번호를 입력하세요");
 				System.out.print("아이디 : ");
 				String id = sc.next();
 				System.out.print("비밀번호 : ");
 				String pw = sc.next();			
 
 				//DELETE 작업
-				result = memcon.conDelete(id, pw); //Controller에 전송
+				result = memcon.conDelete(id, pw); //Controller에 전송			
 				if(result > 0) {
-					System.out.println("탈퇴 성공");
+					System.out.println("탈퇴에 성공했습니다");
 					result = 0;
 				}else {
 					System.out.println("탈퇴 실패");
 				}
-				//MemberDTO → id, pw, nick → (DB) 회원가입
-
 				
+
 			}else if(input == 5) {
 				break;
 			}
