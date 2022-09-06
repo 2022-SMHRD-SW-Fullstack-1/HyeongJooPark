@@ -4,7 +4,7 @@ public abstract class Level {
 	
 	private int time;
 	private int score;
-	
+		
 	public Level() {
 		
 	}
