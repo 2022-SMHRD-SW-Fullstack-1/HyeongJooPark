@@ -82,14 +82,7 @@ public class GameMain {
 									mc.stop();				
 									System.out.println("========"+(round)+"번째 문제========");
 									System.out.println("패스를 원할 시 p를 입력하세요");
-									
-									if(hintCheck==true) {
-										hintCheck=false;
-										System.out.print("힌트 : ");
-										System.out.println(mc.hint());
-										
-									}
-									
+				
 									System.out.print("정답 입력 >> ");
 									String ans = sc.next();
 									if(ans.equals(mc.answer())) {
@@ -108,12 +101,20 @@ public class GameMain {
 										System.out.println("틀렸습니다!");
 										count--;
 										System.out.println("남은 횟수 : "+count+"/3");
-										hintCheck=true;										
+										hintCheck=true;
+										if(hintCheck==true) {
+						
+											System.out.print("힌트 : ");
+											System.out.println(mc.hint());
+											
+										}
+																			
 									}
 									if(count==0) {
+										System.out.println("정답 : "+mc.answer());
 										System.out.println("====================");
 										System.out.println("You're dead");
-										hintCheck=false;
+										
 									}
 								}
 								System.out.println("====================");
