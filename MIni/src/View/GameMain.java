@@ -22,14 +22,14 @@ public class GameMain {
 		int result = 0;	//sql 전송 체크
 
 		while(true) {
-			System.out.print("[1]회원가입 [2]로그인 [3]랭킹보기 [4]종료 >> ");
+			System.out.print("[1]회원가입 [2]로그인 [3]랭킹보기 [4]탈퇴 [5]종료 >> ");
 			int input = sc.nextInt();
 
 			if(input == 1) {
 				System.out.println("======회원가입======");
 				System.out.print("아이디 : ");
 				String id = sc.next();
-				System.out.print("비밀번호(숫자로만입력) : ");
+				System.out.print("비밀번호 : ");
 				String pw = sc.next();
 				System.out.print("닉네임 : ");
 				String nick = sc.next();			
@@ -38,6 +38,7 @@ public class GameMain {
 				result = memcon.conInsert(id, pw, nick); //Controller에 전송
 				if(result > 0) {
 					System.out.println("가입 성공");
+					result = 0;
 				}else {
 					System.out.println("가입 실패");
 				}
@@ -113,7 +114,7 @@ public class GameMain {
 									}
 								}
 								System.out.println("====================");
-								result = memcon.scoreInsert(id, score); //Controller에 전송
+								int totalScore = memcon.scoreInsert(id, score); //Controller에 전송
 								//							if(result > 0) {
 								//								System.out.println("점수 저장 성공");
 								//							}else {
@@ -212,6 +213,24 @@ public class GameMain {
 					}
 				}
 			}else if(input == 4) {
+				System.out.println("======탈퇴======");
+				System.out.print("아이디 : ");
+				String id = sc.next();
+				System.out.print("비밀번호 : ");
+				String pw = sc.next();			
+
+				//DELETE 작업
+				result = memcon.conDelete(id, pw); //Controller에 전송
+				if(result > 0) {
+					System.out.println("탈퇴 성공");
+					result = 0;
+				}else {
+					System.out.println("탈퇴 실패");
+				}
+				//MemberDTO → id, pw, nick → (DB) 회원가입
+
+				
+			}else if(input == 5) {
 				break;
 			}
 

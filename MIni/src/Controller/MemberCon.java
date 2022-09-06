@@ -43,5 +43,12 @@ public class MemberCon {
 		return nick;
 	}
 	
+	public int conDelete(String id, String pw) {
+		//view가 넘겨준 회원가입에 대한 정보들을 DAO로 연결해주는 메소드
+		cnt = dao.delete(id, pw);
+		
+		return cnt;
+	}
+	
 
 }
