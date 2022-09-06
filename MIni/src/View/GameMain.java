@@ -101,13 +101,13 @@ public class GameMain {
 							}
 							System.out.println("====================");
 							result = memcon.scoreInsert(id, score); //Controller에 전송
-							if(result > 0) {
-								System.out.println("점수 저장 성공");
-							}else {
-								System.out.println("점수 저장 실패");
-							}
+//							if(result > 0) {
+//								System.out.println("점수 저장 성공");
+//							}else {
+//								System.out.println("점수 저장 실패");
+//							}
 							//랭크 보여줄 자리
-							if(round>3) {
+							if(round>3 || count==0) {
 								System.out.println("게임 종료");
 								System.out.println("다시 도전하시겠습니까?");
 								System.out.print("[1]Yes [2]No");
@@ -119,7 +119,7 @@ public class GameMain {
 									mc.GenerateRandomVariable();
 									continue;
 								}			
-								break;
+								else break;
 							}
 						}
 						System.out.println("초기화면으로 돌아갑니다");
@@ -128,9 +128,6 @@ public class GameMain {
 						
 					}else if(inputLog == 2) {
 						//게임설명화면
-						
-						
-						
 					}
 				}else {
 					System.out.println("로그인에 실패 하셨습니다");

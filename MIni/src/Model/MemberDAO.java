@@ -22,11 +22,11 @@ public class MemberDAO {
 			
 			conn = DriverManager.getConnection(url, db_id, db_pw);
 			
-		if(conn!=null) {
-			System.out.println("접속 성공");
-		}else {
-			System.out.println("접속 실패");
-		}
+//		if(conn!=null) {
+//			System.out.println("접속 성공");
+//		}else {
+//			System.out.println("접속 실패");
+//		}
 		}  catch (Exception e) {
 			e.printStackTrace();
 		}
