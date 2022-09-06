@@ -35,10 +35,7 @@ public class MusicController {
 		}
 	}
 	public MusicController() {
-		mm.select();
-//		for(int i = 0; i<56 ; i++) {
-//			musiclist.add(new MusicModel(musiclist.get(i).getMusicPath(), musiclist.get(i).getSinger(), musiclist.get(i).getSongName(), musiclist.get(i).getHead()));
-							
+		mm.select();							
 	}
 	
 	public Level selectLevel(int selectL) {
@@ -84,9 +81,9 @@ public class MusicController {
 		return mm.select().get(rdVal[round]).getTitle();
 	}
 	
-//	public String hint() {
-//		
-//	}
+	public String hint() {
+		return mm.select().get(rdVal[round]).getHead();
+	}
 	
 	public int score(String ans) {
 		sum+=LV.getScore();

@@ -48,7 +48,7 @@ public class GameMain {
 				System.out.print("아이디 : ");
 				String id = sc.next();
 
-				System.out.println("비밀번호 : ");
+				System.out.print("비밀번호 : ");
 				String pw = sc.next();
 
 				//로그인 성공시 회원의 닉네임 출력하기
@@ -83,8 +83,8 @@ public class GameMain {
 									System.out.println("패스를 원할 시 p를 입력하세요");
 									
 									if(hintCheck==true) {
-										System.out.println("힌트 : ");
-										
+										System.out.print("힌트 : ");
+										System.out.println(mc.hint());
 										hintCheck=false;
 									}
 									
@@ -105,7 +105,7 @@ public class GameMain {
 										System.out.println("틀렸습니다!");
 										count--;
 										System.out.println("남은 횟수 : "+count+"/3");
-										hintCheck=true;
+										hintCheck=true;										
 									}
 									if(count==0) {
 										System.out.println("====================");
