@@ -1,9 +1,11 @@
 package View;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import Controller.MemberCon;
 import Controller.MusicController;
+import Model.MemberDTO;
 
 public class GameMain {
 
@@ -98,7 +100,12 @@ public class GameMain {
 								}
 							}
 							System.out.println("====================");
-							
+							result = memcon.scoreInsert(id, score); //Controller에 전송
+							if(result > 0) {
+								System.out.println("점수 저장 성공");
+							}else {
+								System.out.println("점수 저장 실패");
+							}
 							//랭크 보여줄 자리
 							if(round>3) {
 								System.out.println("게임 종료");
@@ -130,9 +137,15 @@ public class GameMain {
 				}
 
 			}else if(input == 3) {
-				//랭킹보기 rownum으로 전체회원 점수 10위까지 조회
-				memcon.conRank();
-
+				ArrayList<MemberDTO> resultList = new ArrayList<>();
+				
+				resultList = memcon.conRank(); //Controller에 기능 요청
+	
+				//ArrayList 출력
+				for(int i=0; i<resultList.size(); i++) {
+					System.out.println((i+1)+"등 " + resultList.get(i).getNick()+ "님의 점수 : "
+							+ resultList.get(i).getScore() + " / " + resultList.get(i).getDate());
+				}
 			}else if(input == 4) {
 				break;
 			}

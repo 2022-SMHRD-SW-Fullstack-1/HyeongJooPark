@@ -85,6 +85,24 @@ public class MemberDAO {
 			close();
 		}return nick;
 	}
+	
+	public int saveRank(String id, int score) {
+		getCon();
+		try {
+			String sql = "insert into user_score values(?, ?, sysdate)";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			psmt.setInt(2, score);
+			
+			cnt = psmt.executeUpdate();
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			close();
+		}
+		return cnt;
+	}
 	//랭킹보기
 	public ArrayList<MemberDTO> select(){
 		ArrayList<MemberDTO> totalList = new ArrayList<>();
@@ -98,8 +116,9 @@ public class MemberDAO {
 			while(rs.next()) {
 				String nick = rs.getString("nick");
 				int score = rs.getInt("score");
+				String res_date = rs.getString("res_date");
 				
-				MemberDTO dto = new MemberDTO(nick, score);
+				MemberDTO dto = new MemberDTO(nick, score, res_date);
 				totalList.add(dto);
 				
 			}
@@ -111,8 +130,6 @@ public class MemberDAO {
 		}
 		return totalList;
 	}
-	
-	
 	
 	
 	

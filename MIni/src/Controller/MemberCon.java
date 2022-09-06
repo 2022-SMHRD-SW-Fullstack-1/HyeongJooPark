@@ -19,7 +19,11 @@ public class MemberCon {
 		//view가 넘겨준 회원가입에 대한 정보들을 DAO로 연결해주는 메소드
 		cnt = dao.insert(id, pw, nick);
 		
-		return cnt;	
+		return cnt;
+	}
+	public int scoreInsert(String id, int score) {
+		cnt = dao.saveRank(id, score);
+		return cnt;
 	}
 	
 	public ArrayList<MemberDTO> conRank() {
@@ -38,6 +42,7 @@ public class MemberCon {
 				
 		return nick;
 	}
+	
 	
 
 }
