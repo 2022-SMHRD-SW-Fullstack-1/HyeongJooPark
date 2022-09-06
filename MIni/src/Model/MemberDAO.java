@@ -85,6 +85,26 @@ public class MemberDAO {
 			close();
 		}return nick;
 	}
+	public String delete(String id) {
+		getCon();
+		String nick = null;
+		try {
+			String sql = "delete from user_info where id=?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, id);
+			
+			rs = psmt.executeQuery();
+			
+			if(rs.next()) {
+				nick=rs.getString(1);
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		finally {
+			close();
+		}return nick;
+	}
 	
 	public int saveRank(String id, int score) {
 		getCon();
@@ -154,27 +174,6 @@ public class MemberDAO {
 			close();
 		}
 		return head;
-	}
-	public int delete(String id, String pw) {
-		getCon();		
-		
-		try {
-			String sql = "DELETE FROM user_info WHERE id = ? AND pw = ?"; //id, pw, nick, age
-
-			psmt = conn.prepareStatement(sql);
-			
-			psmt.setString(1, id);
-			psmt.setString(2, pw);
-			
-			cnt = psmt.executeUpdate();			
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		finally {
-			close(); // - 연결 종료
-		}
-		return cnt;
 	}
 	
 	

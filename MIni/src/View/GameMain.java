@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 import Controller.MemberCon;
 import Controller.MusicController;
-import Model.Level;
 import Model.MemberDTO;
 
 public class GameMain {
@@ -84,9 +83,10 @@ public class GameMain {
 									System.out.println("패스를 원할 시 p를 입력하세요");
 									
 									if(hintCheck==true) {
+										hintCheck=false;
 										System.out.print("힌트 : ");
 										System.out.println(mc.hint());
-										hintCheck=false;
+										
 									}
 									
 									System.out.print("정답 입력 >> ");
@@ -99,6 +99,7 @@ public class GameMain {
 										mc.next();
 										continue;
 									}else if(ans.equals("p")) {
+										System.out.println("정답 : "+mc.answer());
 										mc.next();
 										round++;
 										continue;
