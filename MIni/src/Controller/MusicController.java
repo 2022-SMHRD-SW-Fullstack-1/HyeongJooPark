@@ -3,8 +3,7 @@ package Controller;
 import java.util.ArrayList;
 import java.util.Random;
 
-import Model.Easy;
-import Model.Hard;
+import Model.Hell;
 import Model.Level;
 import Model.MusicModel;
 import Model.Normal;
@@ -42,20 +41,16 @@ public class MusicController {
 	
 	public Level selectLevel(int selectL) {
 		if(selectL==1) {
-			LV = new Easy();
-		}else if(selectL==2) {
 			LV = new Normal();
-		}else if(selectL==3) {
-			LV = new Hard();
+		}else if(selectL==2) {
+			LV = new Hell();
 		}
 		return LV;
 	}
 	
 	//문제 출제
 	public void play() {
-		if(round<3) {
-			mp3.play(musiclist.get(rdVal[round]).getMusicPath());
-		}
+		mp3.play(musiclist.get(rdVal[round]).getMusicPath());
 	}
 
 	//다음 문제 출제
@@ -85,6 +80,10 @@ public class MusicController {
 	
 	public String answer() {
 		return musiclist.get(rdVal[round]).getSongName();
+	}
+	
+	public String hint() {
+		
 	}
 	
 	public int score(String ans) {

@@ -132,6 +132,31 @@ public class MemberDAO {
 	}
 	
 	
+	public String giveHint(String songName) {// 힌트출력
+		getCon();
+		String head="";
+		try {
+			String sql = "select head from musiclist where title=?";
+			psmt = conn.prepareStatement(sql);
+			psmt.setString(1, songName);
+			
+			rs = psmt.executeQuery();
+			while(rs.next()) {
+				String path = rs.getString("path");
+				String title = rs.getString("title");
+				String singer = rs.getString("singer");
+				head = rs.getString("head");
+			}
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		finally {
+			close();
+		}
+		return head;
+	}
+	
 	
 	
 		

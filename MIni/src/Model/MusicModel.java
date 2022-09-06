@@ -6,6 +6,7 @@ public class MusicModel {
 	private String singer;
 	private int playTime;
 	private String musicPath;
+	
 
 	public MusicModel() {
 		
