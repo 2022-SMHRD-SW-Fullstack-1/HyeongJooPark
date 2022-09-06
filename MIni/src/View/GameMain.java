@@ -88,7 +88,7 @@ public class GameMain {
 										hintCheck=false;
 									}
 									
-									System.out.print("정답 입력 >>");
+									System.out.print("정답 입력 >> ");
 									String ans = sc.next();
 									if(ans.equals(mc.answer())) {
 										score = mc.score(ans);
@@ -158,11 +158,14 @@ public class GameMain {
 							System.out.println("문제는 총 "+question+"문제이며 난이도별로 점수 배점이 다르게 들어갑니다");
 							System.out.println();
 							System.out.println("난이도는 Normal, Hell 총 두 가지입니다.");
-							System.out.println("Normal 모드는 "+mc.selectLevel(1).getTime()+"초 동안 노래를 들을 수 있으며,");
+							System.out.print("Normal 모드는 "+mc.selectLevel(1).getTime()+"초 동안 노래를 들을 수 있으며, ");
 							System.out.println("점수 배점은 문제당"+mc.selectLevel(1).getScore()+"입니다.");
-							System.out.println("Hell 모드는 "+mc.selectLevel(2).getTime()+"초 동안 노래를 들을 수 있으며,");
+							System.out.print("Hell 모드는 "+mc.selectLevel(2).getTime()+"초 동안 노래를 들을 수 있으며, ");
 							System.out.println("점수 배점은 문제당"+mc.selectLevel(2).getScore()+"입니다.");
-							System.out.println("과연 당신은 하늘에 닿을 수 있을까요? ㅋ");
+							System.out.println("정답 입력은 한글과 숫자, 띄어쓰기 없이 입력 바랍니다");
+							System.out.println("ex)love dive = 러브다이브, 비밀번호486");
+							System.out.println("문제를 틀리고 재시도를 할때에는 노래제목 초성 힌트가 나갑니다");
+							System.out.println("과연 당신은 하늘에 닿을 수 있을까요? ㅋㅋ");
 							
 							System.out.println("[1] 게임 시작 [2]종료");
 							int helpSelect = sc.nextInt();
