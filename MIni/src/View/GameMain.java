@@ -113,7 +113,7 @@ public class GameMain {
 							boolean hintCheck = false;
 							System.out.println("\t==========*+:+    난이도 선택     +:+*============");
 							System.out.println();
-							System.out.print("\t\t\t[1]Normal [2]Hell >> ");
+							System.out.print("\t\t[1]Normal [2]Hell >> ");
 							mc.selectLevel(sc.nextInt());
 							System.out.println();
 							System.out.println("\t==============*+:+    *    +:+*================");
@@ -122,54 +122,54 @@ public class GameMain {
 							while(true) {
 								if(round<=question) {
 									System.out.println();
-									System.out.println("\t======*+:+노래가 끝나고 나면 정답을 입력해주세요+:+*======");
+									System.out.println("\t==*+:+노래가 끝나고 나면 정답을 입력해주세요+:+*==");
 									
 									System.out.println();
 									System.out.println("\t===============*+:+"+(round)+"번째 문제+:+*=================");
 									System.out.println();
 									if(hintCheck==true) {						
-										System.out.println("\t\t\t힌트 : " + mc.singer() +" - " + mc.hint());		
+										System.out.println("\t\t힌트 : " + mc.singer() +" - " + mc.hint());		
 										hintCheck = false;
 									}
 									
 									mc.play();
 									mc.stop();
-									System.out.println("\t\t\t패스를 원한다면 p를 입력해주세요");			
-									System.out.print("\t\t\t정답 입력 >> ");
+									System.out.println("\t\t패스를 원한다면 p를 입력해주세요");			
+									System.out.print("\t\t정답 입력 >> ");
 									String ans = sc.next();
 									System.out.println();
 
 									if(ans.equals(mc.answer())) {
 										score = mc.score(ans);
 										round++;
-										System.out.println("\t\t\t정답입니다!");
-										System.out.println("\t\t\t정답 : "+ mc.singer()+" - " +mc.answer());
-										System.out.println("\t\t\t현재 획득한 점수 : "+score);
+										System.out.println("\t\t정답입니다!");
+										System.out.println("\t\t정답 : "+ mc.singer()+" - " +mc.answer());
+										System.out.println("\t\t현재 획득한 점수 : "+score);
 										mc.next();
 										System.out.println();
 										System.out.println();
 										continue;
 									}else if(ans.equals("p")) {
-										System.out.println("\t\t\t정답 : "+ mc.singer()+" - " +mc.answer());
+										System.out.println("\t\t정답 : "+ mc.singer()+" - " +mc.answer());
 										mc.next();
 										System.out.println();
 										round++;
 										continue;
 									}else {
-										System.out.println("\t\t\t틀렸습니다!");
+										System.out.println("\t\t틀렸습니다!");
 										count--;
-										System.out.println("\t\t\t남은 횟수 : "+count+"/3");
+										System.out.println("\t\t남은 횟수 : "+count+"/3");
 										System.out.println();
 										hintCheck=true;
 																												
 									}
 									if(count==0) {
-										System.out.println("\t\t\t정답 : "+ mc.singer() +" - " + mc.answer());
+										System.out.println("\t\t정답 : "+ mc.singer() +" - " + mc.answer());
 										System.out.println();
 										System.out.println();
-										
+										System.out.println("\t=============*+:+    *     +:+*================");
 										System.out.println();
-										System.out.println("\t\t\tYou're dead");
+										System.out.println("\t|||\tYou're dead\t|||");
 										System.out.println();
 										hintCheck = false;
 									}
@@ -180,12 +180,12 @@ public class GameMain {
 
 								//랭크 보여줄 자리
 								if(round>question || count==0) {
-									System.out.println("\t\t\t게임 종료");
-									System.out.println("\t\t\t당신의 점수 : "+score);
+									System.out.println("\t\t게임 종료");
+									System.out.println("\t\t당신의 점수 : "+score);
 									System.out.println();
 									System.out.println();
-									System.out.println("\t\t\t다시 도전하시겠습니까?");
-									System.out.print("\t\t\t[1]Yes [2]No >> ");
+									System.out.println("\t\t다시 도전하시겠습니까?");
+									System.out.print("\t\t[1]Yes [2]No >> ");
 									int retry = sc.nextInt();
 									System.out.println();
 									System.out.println();
@@ -252,22 +252,22 @@ public class GameMain {
 							for(int i=0; i<resultList.size(); i++) {
 								if(i==0) {
 									System.out.println("\r\n"
-											+ "      ::::::::       :::    :::    :::   ::: \r\n"
-											+ "    :+:    :+:      :+:   :+:     :+:   :+:  \r\n"
-											+ "   +:+             +:+  +:+       +:+ +:+    \r\n"
-											+ "  +#++:++#++      +#++:++         +#++:      \r\n"
-											+ "        +#+      +#+  +#+         +#+        \r\n"
-											+ "#+#    #+#      #+#   #+#        #+#         \r\n"
-											+ "########       ###    ###       ###          \r\n"
+											+ "\t      ::::::::       :::    :::    :::   ::: \r\n"
+											+ "\t    :+:    :+:      :+:   :+:     :+:   :+:  \r\n"
+											+ "\t   +:+             +:+  +:+       +:+ +:+    \r\n"
+											+ "\t  +#++:++#++      +#++:++         +#++:      \r\n"
+											+ "\t        +#+      +#+  +#+         +#+        \r\n"
+											+ "\t#+#    #+#      #+#   #+#        #+#         \r\n"
+											+ "\t########       ###    ###       ###          \r\n"
 											+"======================================================\r\n"
-											+(i+1)+"등 " + resultList.get(i).getNick()+ "님의 점수 : "
+											+"\t"+(i+1)+"등 " + resultList.get(i).getNick()+ "님의 점수 : "
 											+resultList.get(i).getScore() + " / " + resultList.get(i).getDate()+"\r\n"
 											+ "======================================================");
 									System.out.println();
 									
 								}else {
 									
-									System.out.println((i+1)+"등 " + resultList.get(i).getNick()+ "님의 점수 : "
+									System.out.println("\t"+(i+1)+"등 " + resultList.get(i).getNick()+ "님의 점수 : "
 											+ resultList.get(i).getScore() + " / " + resultList.get(i).getDate());
 								}
 							}System.out.println();
