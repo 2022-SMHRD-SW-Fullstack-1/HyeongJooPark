@@ -3,6 +3,7 @@ package View;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import Controller.MPlay;
 import Controller.MemberCon;
 import Controller.MusicController;
 import Model.MemberDTO;
@@ -11,7 +12,7 @@ public class GameMain {
 
 	public static void main(String[] args) {
 		
-
+		MPlay mp = new MPlay();
 		Scanner sc = new Scanner(System.in);
 		//사용자에게 보여지는 화면 작성
 
@@ -96,10 +97,11 @@ public class GameMain {
 									}
 									
 									mc.play();
-									mc.stop();				
+									mc.stop();
 									System.out.println("패스를 원한다면 p를 입력해주세요");			
 									System.out.print("정답 입력 >> ");
 									String ans = sc.next();
+
 									if(ans.equals(mc.answer())) {
 										score = mc.score(ans);
 										round++;
