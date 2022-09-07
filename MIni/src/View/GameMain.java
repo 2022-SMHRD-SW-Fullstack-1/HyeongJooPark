@@ -169,7 +169,7 @@ public class GameMain {
 										System.out.println();
 										System.out.println("\t=============*+:+    *     +:+*================");
 										System.out.println();
-										System.out.println("\t|||\tYou're dead\t|||");
+										System.out.println("\t|||\t\t\tYou're dead\t\t\t|||");
 										System.out.println();
 										hintCheck = false;
 									}
