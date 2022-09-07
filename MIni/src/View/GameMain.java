@@ -91,7 +91,8 @@ public class GameMain {
 									System.out.println("============ "+(round)+"번째 문제 ============");
 									
 									if(hintCheck==true) {						
-										System.out.println("힌트 : " + mc.singer() +" - " + mc.hint());									
+										System.out.println("힌트 : " + mc.singer() +" - " + mc.hint());		
+										hintCheck = false;
 									}
 									
 									mc.play();
@@ -134,7 +135,7 @@ public class GameMain {
 									System.out.println("당신의 점수 : "+score);
 									System.out.println();
 									System.out.println("다시 도전하시겠습니까?");
-									System.out.print("[1]Yes [2]No");
+									System.out.print("[1]Yes [2]No >> ");
 									int retry = sc.nextInt();
 									if(retry==1) {
 										count=3;
@@ -157,12 +158,13 @@ public class GameMain {
 							System.out.println();
 							System.out.println("들리는 노래를 듣고 노래 제목을 맞춰주세요!");
 							System.out.println("문제는 총 "+question+"문제이며 난이도별로 점수 배점이 다르게 들어갑니다");
+							System.out.println("기회는 3번이고 틀리면 차감되며 패스는 기회는 줄어들지 않고 라운드 수는 올라갑니다");
 							System.out.println("==========================================================================");
 							System.out.println("난이도는 Normal, Hell 총 두 가지입니다.");
 							System.out.print("Normal 모드는 "+mc.selectLevel(1).getTime()+"초 동안 노래를 들을 수 있으며, ");
-							System.out.println("점수 배점은 문제당"+mc.selectLevel(1).getScore()+"입니다.");
+							System.out.println("점수 배점은 문제당"+mc.selectLevel(1).getScore()+" 입니다.");
 							System.out.print("Hell 모드는 "+mc.selectLevel(2).getTime()+"초 동안 노래를 들을 수 있으며, ");
-							System.out.println("점수 배점은 문제당"+mc.selectLevel(2).getScore()+"입니다.");
+							System.out.println("점수 배점은 문제당"+mc.selectLevel(2).getScore()+" 입니다.");
 							System.out.println("==========================================================================");
 							System.out.print("정답 입력은 한글과 숫자, 띄어쓰기 없이 입력 바랍니다\t");
 							System.out.println("ex)love dive = 러브다이브, 비밀번호486");
